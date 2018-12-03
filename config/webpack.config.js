@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const isDevelopment = argv.mode === 'development';
 const isProduction = !isDevelopment;
-const distPath = path.join(__dirname, '/public');
+const distPath = path.join(__dirname, './build');
 
 const config = {
     entry: {
@@ -26,7 +26,10 @@ const config = {
             test: /\.js$/,
             exclude: /node_modules/,
             use: [{
-                loader: 'babel-loader'
+                loader: 'babel-loader',
+                options: {
+                    presets: ['env', 'react']
+                }
             }]
         }, {
             test: /\.scss$/,
@@ -80,7 +83,7 @@ const config = {
             chunkFilename: '[id].css'
         }),
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './public/index.html'
         })
     ],
     optimization: isProduction ? {
