@@ -56,7 +56,7 @@ const config = {
             use: [{
                 loader: 'file-loader',
                 options: {
-                    name: 'images/[name][hash].[ext]'
+                    name: '/images/[name].[ext]'
                 }
             }, {
                 loader: 'image-webpack-loader',
@@ -80,7 +80,7 @@ const config = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: 'build/[name].css',
+            filename: 'css/[name].css',
             // chunkFilename: '[id].css'
         }),
         new HtmlWebpackPlugin({

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './SignUpContainer.scss';
 import '../../index.scss';
-import logo from '../../assets/images/logo.svg';
+import img from '../../assets/images/logo.svg';
 import {Link, Switch, Route} from 'react-router-dom';
 import {GetCountries, SetPhone} from '../../store/actions/SignUpActions';
 import CountryCodesList from './Components/CountryCodesList/CountryCodesList';
@@ -114,7 +114,7 @@ class SignUpContainer extends Component {
             });
         return (
             <div className="signup-container">
-                <img className="logo" src={logo} alt="Sweet TV"/>
+                <img className="logo" src={img} alt="Sweet TV"/>
                 <h1>Введите свой номер телефона для подключения</h1>
                 {invalidPhoneErrorMessage ? <p>{invalidPhoneErrorMessage}</p> : null}
                 {setPhoneErrorMessage ? <p>{setPhoneErrorMessage}</p> : null}
