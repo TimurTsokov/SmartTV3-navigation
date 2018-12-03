@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const isDevelopment = argv.mode === 'development';
 const isProduction = !isDevelopment;
-const distPath = path.join(__dirname, 'config/build');
+const distPath = path.join(__dirname, '../build');
 
 const config = {
     entry: {
@@ -80,7 +80,7 @@ const config = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: 'build/main.css',
+            filename: 'build/[name].css',
             // chunkFilename: '[id].css'
         }),
         new HtmlWebpackPlugin({
