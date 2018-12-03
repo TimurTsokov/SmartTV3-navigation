@@ -1,3 +1,5 @@
+@import "../../scss/typography";
+
 .signup-container {
   .logo {
     margin: 80px 0 0 90px;
@@ -7,7 +9,7 @@
     text-transform: uppercase;
     text-align: center;
     margin: 110px 0 78px 0;
-    font-family: 'AvenirBold', 'Tahoma';
+    font-family: $bold-font, 'Tahoma';
     font-size: 36px;
   }
   .wrap {

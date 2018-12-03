@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const isDevelopment = argv.mode === 'development';
 const isProduction = !isDevelopment;
-const distPath = path.join(__dirname, './build');
+const distPath = path.join(__dirname, 'config/build');
 
 const config = {
     entry: {
@@ -28,7 +28,8 @@ const config = {
             use: [{
                 loader: 'babel-loader',
                 options: {
-                    presets: ['env', 'react']
+                    // presets: ['env', 'react']
+                    presets: ["es2015", "react", "stage-2", "env", "react-app"]
                 }
             }]
         }, {
@@ -68,7 +69,7 @@ const config = {
             },
             ],
         }, {
-            test: /\.(eot|svg|ttf|woff|woff2)$/,
+            test: /\.(eot|ttf|woff|woff2)$/,
             use: {
                 loader: 'file-loader',
                 options: {
@@ -79,26 +80,26 @@ const config = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css'
+            filename: 'build/main.css',
+            // chunkFilename: '[id].css'
         }),
         new HtmlWebpackPlugin({
             template: './public/index.html'
         })
     ],
-    optimization: isProduction ? {
-            minimizer: [
-                new UglifyJsPlugin({
-                    sourceMap: true,
-                    uglifyOptions: {
-                        compress: {
-                            inline: false,
-                            drop_console: true
-                        },
-                    },
-                }),
-            ],
-        } : {},
+    // optimization: isProduction ? {
+    //         minimizer: [
+    //             new UglifyJsPlugin({
+    //                 sourceMap: true,
+    //                 uglifyOptions: {
+    //                     compress: {
+    //                         inline: false,
+    //                         drop_console: true
+    //                     },
+    //                 },
+    //             }),
+    //         ],
+    //     } : {},
     devServer: {
         contentBase: distPath,
         port: 9000,
